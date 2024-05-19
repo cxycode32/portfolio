@@ -46,27 +46,27 @@ export const Article: React.FC = () => {
   const educationSkills: SkillBoxProps[] = [
     {
       txt: "PHP",
-      msg: ":D",
+      msg: "Figma",
     },
     {
       txt: "MySQLi",
-      msg: ":D",
+      msg: "Photoshop",
     },
     {
       txt: "Java",
-      msg: ":D",
+      msg: "Illustrator",
     },
     {
       txt: "Python",
-      msg: ":D",
+      msg: "Premiere",
     },
     {
       txt: "C#",
-      msg: ":D",
+      msg: "GIMP",
     },
     {
       txt: "CPP",
-      msg: ":D",
+      msg: "OpenToonz",
     },
   ];
 
