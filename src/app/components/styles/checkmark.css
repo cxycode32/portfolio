@@ -1,0 +1,137 @@
+.checkmark {
+  display: block;
+  height: 5em;
+  position: relative;
+  width: 5em;
+
+  @media only screen and (max-width: 1280px) {
+    height: 4em;
+    width: 4em;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    height: 3em;
+    width: 3em;
+  }
+
+  @media only screen and (max-width: 768px) {
+    height: 2em;
+    width: 2em;
+  }
+}
+
+.check-reveal--active .checkmark:after {
+  -webkit-animation: check 0.8s;
+  -moz-animation: check 0.8s;
+  -o-animation: check 0.8s;
+  animation: check 0.8s;
+  -moz-transform: scaleX(-1) rotate(135deg);
+  -ms-transform: scaleX(-1) rotate(135deg);
+  -webkit-transform: scaleX(-1) rotate(135deg);
+  transform: scaleX(-1) rotate(135deg);
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+@media only screen and (min-width: 1281px) {
+  .check-reveal--active .checkmark:after {
+    border-right: 1em solid var(--dark-brown);
+    border-top: 1em solid var(--dark-brown);
+    height: 4em;
+    width: 2em;
+    top: 50%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .check-reveal--active .checkmark:after {
+    border-right: 0.8em solid var(--dark-brown);
+    border-top: 0.8em solid var(--dark-brown);
+    height: 3em;
+    width: 2em;
+    top: 50%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .check-reveal--active .checkmark:after {
+    border-right: 0.7em solid var(--dark-brown);
+    border-top: 0.7em solid var(--dark-brown);
+    height: 3em;
+    width: 1.5em;
+    top: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .check-reveal--active .checkmark:after {
+    border-right: 0.6em solid var(--dark-brown);
+    border-top: 0.6em solid var(--dark-brown);
+    height: 2em;
+    width: 1em;
+    top: 50%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .check-reveal--active .checkmark:after {
+    border-right: 0.4em solid var(--dark-brown);
+    border-top: 0.4em solid var(--dark-brown);
+    height: 1.5em;
+    width: 1em;
+    top: 30%;
+  }
+}
+
+@-webkit-keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+  }
+
+  33.3333% {
+    width: 40px;
+    height: 0;
+  }
+}
+
+@-moz-keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+  }
+
+  33.3333% {
+    width: 40px;
+    height: 0;
+  }
+}
+
+@-ms-keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+  }
+
+  33.3333% {
+    width: 40px;
+    height: 0;
+  }
+}
+
+@keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+  }
+
+  33.3333% {
+    width: 40px;
+    height: 0;
+  }
+}

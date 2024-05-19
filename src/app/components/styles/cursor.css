@@ -1,0 +1,28 @@
+.cursor {
+  position: fixed;
+  border: 2px solid var(--nude);
+  border-radius: 50%;
+  background-color: rgba(var(--nude-rgb), 0.5);
+  transform: translate(-50%, -50%);
+  z-index: 999999 !important ;
+  mix-blend-mode: screen;
+  backdrop-filter: blur(1px);
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  pointer-events: none;
+  cursor: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .cursor {
+    width: 0;
+    height: 0;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+      opacity 0.2s ease-in-out;
+  }
+}
+
+.cursor .pointer {
+  opacity: 0 !important;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}

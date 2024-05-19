@@ -1,0 +1,70 @@
+.msg__wrapper {
+  width: fit-content;
+  height: fit-content;
+  background: rgba(var(--nude-rgb), 0.8);
+  border-radius: 25px;
+  position: absolute;
+
+  @media only screen and (max-width: 768px) {
+    border-radius: 15px;
+  }
+}
+
+.msg__box {
+  min-width: 20em;
+  max-width: 28em;
+  width: max-content;
+  height: fit-content;
+  border: 0.4em dashed var(--dark-brown);
+  border-radius: 20px;
+  margin: 0.6em;
+  padding: 1.2em;
+
+  @media only screen and (max-width: 1280px) {
+    max-width: 24em;
+    border: 0.3em dashed var(--dark-brown);
+    padding: 1em;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    max-width: 20em;
+    border: 0.2em dashed var(--dark-brown);
+    padding: 0.8em;
+  }
+
+  @media only screen and (max-width: 768px) {
+    min-width: min-content;
+    max-width: 12em;
+    border: 0.2em dashed var(--dark-brown);
+    border-radius: 10px;
+    margin: 0.4em;
+    padding: 0.6em;
+    width: min-content;
+  }
+
+  @media only screen and (max-width: 640px) {
+    max-width: 12em;
+    border: 0.1em dashed var(--dark-brown);
+    margin: 0.2em;
+    padding: 0.4em;
+  }
+}
+
+.msg__txt {
+  font-family: var(--font-ubuntu);
+  font-size: 1.2vw;
+  font-weight: 500;
+  color: var(--dark-brown);
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 1.4vw;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.6vw;
+  }
+
+  @media only screen and (max-width: 640px) {
+    font-size: 1.8vw;
+  }
+}

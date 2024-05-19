@@ -1,0 +1,251 @@
+.circle,
+.rect,
+.tri {
+  position: absolute;
+  background-color: transparent;
+  mix-blend-mode: multiply;
+  z-index: -100;
+
+  @media only screen and (max-width: 1024px) {
+    mix-blend-mode: normal;
+  }
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.circle-1 {
+  width: 100vh;
+  height: 100vh;
+  border: 10vw solid var(--dark-brown);
+  top: -40%;
+  left: -5%;
+
+  @media only screen and (max-width: 1024px) {
+    width: 75vw;
+    height: 75vw;
+    border: 15vw solid var(--dark-brown);
+    top: -40%;
+    left: -20%;
+  }
+
+  @media only screen and (max-width: 640px) {
+    width: 100vw;
+    height: 100vw;
+    border: 20vw solid var(--dark-brown);
+    top: -32%;
+    left: -32%;
+  }
+}
+
+.circle-2 {
+  width: 100vh;
+  height: 100vh;
+  border: 10vw dotted var(--light-brown);
+  bottom: -20%;
+  left: 8%;
+
+  @media only screen and (max-width: 1024px) {
+    width: 100vw;
+    height: 100vw;
+    border: 25vw dotted var(--light-brown);
+    left: 25%;
+    top: -50%;
+  }
+
+  @media only screen and (max-width: 640px) {
+    top: -8%;
+    left: 42%;
+  }
+}
+
+.circle-2-mini {
+  width: 10vw;
+  height: 10vw;
+  background: var(--dark-brown);
+  z-index: 5;
+  top: 28%;
+  left: 22%;
+
+  @media only screen and (max-width: 1024px) {
+    width: 25vw;
+    height: 25vw;
+    top: 8%;
+    left: 68%;
+  }
+
+  @media only screen and (max-width: 640px) {
+    display: none;
+  }
+}
+
+.circle-3 {
+  width: 100vh;
+  height: 100vh;
+  background-color: var(--nude);
+  top: 0%;
+  left: 57%;
+  z-index: 1;
+  mix-blend-mode: exclusion;
+
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.circle-4 {
+  width: 100vh;
+  height: 100vh;
+  border: 3vw dashed var(--light-brown);
+  top: 0%;
+  left: 65%;
+
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.rect-1 {
+  width: 50vh;
+  height: 50vh;
+  background-color: var(--nude);
+  opacity: 80%;
+  top: -45%;
+  left: 30%;
+
+  @media only screen and (max-width: 1024px) {
+    opacity: 60%;
+    top: -68%;
+    left: 60%;
+  }
+
+  @media only screen and (max-width: 640px) {
+    top: 66%;
+    left: 0%;
+    z-index: -1000;
+  }
+}
+
+.rect-2 {
+  width: 100vh;
+  height: 100vh;
+  border: 2vw dashed var(--dark-brown);
+  top: -62%;
+  left: 28%;
+  transform: rotate(0.2turn);
+
+  @media only screen and (max-width: 1024px) {
+    top: -86%;
+    left: -116%;
+  }
+
+  @media only screen and (max-width: 640px) {
+    top: 110%;
+    transform: rotate(0.1turn);
+    left: -58%;
+  }
+}
+
+.rect-3 {
+  width: 200vh;
+  height: 100vh;
+  border: 4vw dotted var(--light-brown);
+  bottom: 45%;
+  right: -28%;
+
+  @media only screen and (max-width: 1024px) {
+    width: 100vh;
+    height: 100vh;
+    border: 4vw dotted var(--light-brown);
+    bottom: -131%;
+    right: -95%;
+    transform: rotate(0.1turn);
+    z-index: 10;
+    mix-blend-mode: normal;
+  }
+
+  @media only screen and (max-width: 640px) {
+    right: -132%;
+    bottom: -173%;
+    z-index: -10;
+  }
+}
+
+.tri-1 {
+  width: 100vh;
+  height: 100vh;
+  bottom: -38%;
+  left: 28%;
+  transform: rotate(45deg);
+
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.tri-2 {
+  width: 150vh;
+  height: 150vh;
+  top: 15%;
+  right: -10%;
+  mix-blend-mode: color-dodge;
+
+  @media only screen and (max-width: 1024px) {
+    top: 3%;
+  }
+
+  @media only screen and (max-width: 640px) {
+    rotate: 90deg;
+    top: 1%;
+    right: -32%;
+  }
+}
+
+.cross {
+  position: absolute;
+}
+
+.cross-1 {
+  width: 20vh;
+  height: 20vh;
+  bottom: 3%;
+  left: 3%;
+
+  @media only screen and (max-width: 1024px) {
+    width: 15vw;
+    height: 15vw;
+    top: 3%;
+    left: 83%;
+    z-index: 10;
+  }
+
+  @media only screen and (max-width: 640px) {
+    width: 10vw;
+    height: 10vw;
+    top: 20%;
+    left: 13%;
+  }
+}
+
+.cross-2 {
+  width: 20vh;
+  height: 20vh;
+  top: 3%;
+  left: 23%;
+
+  @media only screen and (max-width: 1024px) {
+    width: 15vw;
+    height: 15vw;
+    top: 63%;
+    left: 73%;
+    z-index: 11;
+  }
+
+  @media only screen and (max-width: 640px) {
+    width: 10vw;
+    height: 10vw;
+    top: 80%;
+    left: 80%;
+  }
+}

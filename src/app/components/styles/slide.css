@@ -1,0 +1,261 @@
+.slide {
+  width: 98vw;
+  height: fit-content;
+}
+
+.slide__wrapper {
+  margin: 2vw;
+}
+
+.slide__title {
+  font-size: 15vw;
+}
+
+.slide__title--background {
+  font-size: 20vw;
+  text-align: right;
+  color: rgba(var(--foreground-rgb), 0.2);
+}
+
+.slide__content {
+  width: 94vw;
+  height: fit-content;
+  display: grid;
+  grid-template:
+    "a b c d d" 1fr
+    "f g c h i" 1fr
+    "j k c l l" 1fr
+    "m n c o o" 1fr
+    "p q c r r" 1fr
+    "s t c u u" 1fr / 1fr 8% 2% 1fr 1fr;
+  row-gap: 1vw;
+
+  @media only screen and (max-width: 768px) {
+    grid-template:
+      "a b c" 1fr
+      "d b e" 1fr
+      "f b g" 1fr
+      "h b i" 1fr
+      "j b k" 1fr
+      "l b m" 1fr / 8% 2% 1fr;
+  }
+}
+
+.skillbox-container {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .col-1,
+  .col-5 {
+    display: none;
+  }
+
+  .skillbox-container {
+    display: flex !important;
+    flex-flow: row wrap;
+    width: 90vw;
+    height: fit-content;
+    justify-content: space-evenly;
+    gap: 3vw;
+  }
+
+  .skillbox-box {
+    position: relative;
+    width: 14em;
+    height: 4em;
+  }
+}
+
+.timeline {
+  background-color: rgb(var(--light-brown-rgb));
+  width: 1px;
+  height: 100%;
+  z-index: 9;
+  position: absolute;
+}
+
+.col-1 {
+  padding: 2em;
+
+  @media only screen and (max-width: 1024px) {
+    padding: 1em;
+  }
+}
+
+.col-2 {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.col-4 {
+  display: flex;
+  align-items: center;
+
+  @media only screen and (min-width: 769px) {
+    grid-column: span 2 / span 2;
+  }
+}
+
+.software-engineer {
+  font-size: 3vw;
+  color: var(--light-brown);
+}
+
+.company__name {
+  font-size: 2vw;
+  color: var(--nude);
+}
+
+.slide .date,
+.slide .desc {
+  font-family: var(--font-ubuntu);
+  font-size: 1.2vw;
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 1.4vw;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.6vw;
+  }
+
+  @media only screen and (max-width: 640px) {
+    font-size: 1.8vw;
+  }
+}
+
+.slide .date {
+  font-weight: 500;
+}
+
+.slide .desc {
+  text-align: justify;
+  text-wrap: pretty;
+}
+
+.slide__image {
+  position: absolute;
+  z-index: -10;
+}
+
+.msg {
+  position: absolute;
+  z-index: 10;
+}
+
+.image--work-1 {
+  width: 15vw;
+  right: 2%;
+  top: 15%;
+}
+
+.msg-1 {
+  right: 32%;
+  top: 30%;
+
+  @media only screen and (max-width: 1024px) {
+    right: 38%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    top: 12%;
+    right: 36%;
+  }
+}
+
+.block-reveal {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+
+.block-reveal__block {
+  background: var(--nude);
+  content: "";
+  height: 100%;
+  position: absolute;
+  transform: translateX(calc(100% + 1px));
+  width: 100%;
+  will-change: transform;
+  z-index: 1;
+}
+
+.block-reveal--active .block-reveal__block {
+  animation: block-reveal-block 0.8s;
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.block-reveal__text {
+  opacity: 0;
+}
+
+.block-reveal--active .block-reveal__text {
+  animation: block-reveal-text 0.4s forwards;
+  animation-delay: 0.8s;
+  will-change: transform, opacity;
+}
+
+.bullet--1,
+.bullet--2,
+.bullet--3,
+.bullet--4,
+.bullet--1::before,
+.bullet--2::before,
+.bullet--3::before,
+.bullet--4::before {
+  display: block;
+  position: absolute;
+}
+
+.bullet--1::before,
+.bullet--2::before,
+.bullet--3::before,
+.bullet--4::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border: 2px solid rgb(var(--light-brown-rgb));
+  border-radius: 50%;
+  background-color: rgb(var(--background-rgb));
+  z-index: 10;
+}
+
+.bullet--1::before,
+.bullet--2::before,
+.bullet--3::before,
+.bullet--4::before {
+  top: -0.7vh;
+  right: -1.2em;
+}
+
+@media only screen and (max-width: 1024px) {
+  .bullet--1::before,
+  .bullet--2::before,
+  .bullet--3::before,
+  .bullet--4::before {
+    top: -0.3vh;
+    right: -1em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .bullet--1::before,
+  .bullet--2::before,
+  .bullet--3::before,
+  .bullet--4::before {
+    right: -0.7em;
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .bullet--1::before,
+  .bullet--2::before,
+  .bullet--3::before,
+  .bullet--4::before {
+    right: -0.5em;
+  }
+}
