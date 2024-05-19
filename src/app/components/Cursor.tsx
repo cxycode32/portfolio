@@ -5,20 +5,22 @@ export const Cursor: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isPointer, setIsPointer] = useState(false);
 
-  const handleMouseMove = (e: any) => {
+  const HandleMouseMove = (e: any) => {
     setPosition({ x: e.clientX, y: e.clientY });
 
     const target = e.target;
 
-    setIsPointer(
-      window.getComputedStyle(target).getPropertyValue("cursor") === "pointer"
-    );
+    useEffect(() => {
+      setIsPointer(
+        window.getComputedStyle(target).getPropertyValue("cursor") === "pointer"
+      );
+    });
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", HandleMouseMove);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", HandleMouseMove);
     };
   }, []);
 
