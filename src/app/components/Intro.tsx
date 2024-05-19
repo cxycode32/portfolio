@@ -16,19 +16,6 @@ export const Intro: React.FC = () => {
   const introWrapperRef = useRef<HTMLDivElement | null>(null);
   const introContentRef = useRef<HTMLDivElement | null>(null);
 
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: any) => {
-    setPosition({ x: e.movementX, y: e.movementY });
-  };
-
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   useGSAP(() => {
     mm.add("(min-width: 1025px)", () => {
       gsap.fromTo(

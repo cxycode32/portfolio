@@ -8,18 +8,22 @@ import { useGSAP } from "@gsap/react";
 
 // Custom Hook to get current screen width
 const useScreenWidth = () => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState<number | null>(null);
 
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== "undefined") {
       setScreenWidth(window.innerWidth);
-    };
 
-    window.addEventListener("resize", handleResize);
+      const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+      };
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
   return screenWidth;
@@ -153,8 +157,8 @@ export const Hero: React.FC = () => {
 
   const screenWidth = useScreenWidth();
 
-  useScramblingAnimation(screenWidth > 1024 ? softwareRef : positionRef);
-  useScramblingAnimation(screenWidth > 1024 ? engineerRef : positionRef);
+  useScramblingAnimation(screenWidth! > 1024 ? softwareRef : positionRef);
+  useScramblingAnimation(screenWidth! > 1024 ? engineerRef : positionRef);
 
   return (
     <section ref={heroRef} id="hero" className="hero relative overflow-hidden">
