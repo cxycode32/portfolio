@@ -264,7 +264,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -282,7 +281,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -300,7 +298,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -318,7 +315,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -336,7 +332,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -356,7 +351,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -374,7 +368,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -392,7 +385,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -410,7 +402,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -428,7 +419,6 @@ export const Project: React.FC = () => {
           end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -448,7 +438,6 @@ export const Project: React.FC = () => {
           end: "bottom+=100px top",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -466,7 +455,6 @@ export const Project: React.FC = () => {
           end: "bottom+=100px top",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -484,7 +472,6 @@ export const Project: React.FC = () => {
           end: "bottom+=100px top",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -502,7 +489,6 @@ export const Project: React.FC = () => {
           end: "bottom+=100px top",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 
@@ -520,7 +506,6 @@ export const Project: React.FC = () => {
           end: "bottom+=100px top",
           scrub: true,
           pin: true,
-          markers: true,
         },
       });
 

@@ -33,7 +33,6 @@ export const Playground: React.FC<PlaygroundProps> = ({
         end: "bottom+=200px top-=200px",
         scrub: true,
         pin: true,
-        markers: true,
       },
     });
 
@@ -51,7 +50,6 @@ export const Playground: React.FC<PlaygroundProps> = ({
         end: "bottom+=200px top-=200px",
         scrub: true,
         pin: true,
-        markers: true,
       },
     });
 
