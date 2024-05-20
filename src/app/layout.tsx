@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Ubuntu, Source_Code_Pro } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const ubuntu = Ubuntu({
@@ -43,7 +44,10 @@ export default function RootLayout({
           }
         `}
       </style>
-      <body className={`${lofty.className}`}>{children}</body>
+      <body className={`${lofty.className}`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
