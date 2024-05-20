@@ -3,31 +3,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
-
-// Custom Hook to get current screen width
-const useScreenWidth = () => {
-  const [screenWidth, setScreenWidth] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setScreenWidth(window.innerWidth);
-
-      const handleResize = () => {
-        setScreenWidth(window.innerWidth);
-      };
-
-      window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
-  }, []);
-
-  return screenWidth;
-};
+import { useScreenWidth } from "./helper/Helper";
 
 // Custom Hook for scrambling animation
 const useScramblingAnimation = (positionRef: any) => {

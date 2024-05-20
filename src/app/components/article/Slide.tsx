@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useRef, useState } from "react";
+import { useScrollToMiddle } from "../helper/Helper";
 import { SkillBox } from "./SkillBox";
 import { MsgBox } from "./MsgBox";
 import "../styles/slide.css";
@@ -24,37 +25,6 @@ interface SlideProps {
   desc: string[];
   heading: string;
 }
-
-export const useScrollToMiddle = (
-  ref: RefObject<HTMLElement>,
-  callback: () => void
-) => {
-  useEffect(() => {
-    const handleScroll = () => {
-      if (ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        const windowHeight =
-          window.innerHeight || document.documentElement.clientHeight;
-        const middleOfScreen = windowHeight / 2;
-
-        const isInView =
-          rect.top <= middleOfScreen && rect.bottom >= middleOfScreen;
-
-        if (isInView) {
-          callback();
-          window.removeEventListener("scroll", handleScroll);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [ref, callback]);
-};
 
 export const Slide: React.FC<SlideProps> = ({
   id,

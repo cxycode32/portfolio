@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useScreenWidth } from "./helper/Helper";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MsgBox } from "./article/MsgBox";
@@ -253,93 +255,23 @@ export const Project: React.FC = () => {
     },
   ];
 
+  const screenWidth = useScreenWidth();
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setIsSmallScreen(screenWidth! < 1024);
+  }, [screenWidth]);
+
   const mm = gsap.matchMedia();
 
   useGSAP(() => {
-    mm.add("(min-width: 1025px)", () => {
-      const aug21tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".aug21--playground__wrapper--outer",
-          start: "top center-=200px",
-          end: "bottom+=200px top-=200px",
-          scrub: true,
-          pin: true,
-        },
+    mm.add("(max-width: 768px)", () => {
+      gsap.set(".playground__wrapper--outer", {
+        className: "playground__wrapper--outer",
       });
 
-      aug21tl.to(".aug21--playground__wrapper--inner", {
-        duration: 10,
-        rotateY: -360,
-        rotateX: 20,
-        ease: "none",
-      });
-
-      const carnival21tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".carnival21--playground__wrapper--outer",
-          start: "top center-=200px",
-          end: "bottom+=200px top-=200px",
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      carnival21tl.to(".carnival21--playground__wrapper--inner", {
-        duration: 10,
-        rotateY: -360,
-        rotateX: 20,
-        ease: "none",
-      });
-
-      const jan22tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".jan22--playground__wrapper--outer",
-          start: "top center-=200px",
-          end: "bottom+=200px top-=200px",
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      jan22tl.to(".jan22--playground__wrapper--inner", {
-        duration: 10,
-        rotateY: -360,
-        rotateX: 20,
-        ease: "none",
-      });
-
-      const clwtl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".clw--playground__wrapper--outer",
-          start: "top center-=200px",
-          end: "bottom+=200px top-=200px",
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      clwtl.to(".clw--playground__wrapper--inner", {
-        duration: 10,
-        rotateY: -360,
-        rotateX: 20,
-        ease: "none",
-      });
-
-      const rs22tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".rs22--playground__wrapper--outer",
-          start: "top center-=200px",
-          end: "bottom+=200px top-=200px",
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      rs22tl.to(".rs22--playground__wrapper--inner", {
-        duration: 10,
-        rotateY: -360,
-        rotateX: 20,
-        ease: "none",
+      gsap.set(".playground__wrapper--inner", {
+        className: "playground__wrapper--inner relative",
       });
     });
 
@@ -430,12 +362,12 @@ export const Project: React.FC = () => {
       });
     });
 
-    mm.add("(max-width: 640px)", () => {
+    mm.add("(min-width: 1025px)", () => {
       const aug21tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".aug21--playground__wrapper--outer",
-          start: "top-=700px center",
-          end: "bottom+=100px top",
+          start: "top center-=200px",
+          end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
         },
@@ -451,8 +383,8 @@ export const Project: React.FC = () => {
       const carnival21tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".carnival21--playground__wrapper--outer",
-          start: "top-=700px center",
-          end: "bottom+=100px top",
+          start: "top center-=200px",
+          end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
         },
@@ -468,8 +400,8 @@ export const Project: React.FC = () => {
       const jan22tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".jan22--playground__wrapper--outer",
-          start: "top-=700px center",
-          end: "bottom+=100px top",
+          start: "top center-=200px",
+          end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
         },
@@ -485,8 +417,8 @@ export const Project: React.FC = () => {
       const clwtl = gsap.timeline({
         scrollTrigger: {
           trigger: ".clw--playground__wrapper--outer",
-          start: "top-=700px center",
-          end: "bottom+=100px top",
+          start: "top center-=200px",
+          end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
         },
@@ -502,8 +434,8 @@ export const Project: React.FC = () => {
       const rs22tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".rs22--playground__wrapper--outer",
-          start: "top-=700px center",
-          end: "bottom+=100px top",
+          start: "top center-=200px",
+          end: "bottom+=200px top-=200px",
           scrub: true,
           pin: true,
         },
@@ -530,8 +462,16 @@ export const Project: React.FC = () => {
       <div className="aug21 playground">
         <h3 className="subtitle">Gathering Night Aug2021</h3>
         <div className="playground__container">
-          <div className="playground__wrapper--outer aug21--playground__wrapper--outer absolute">
-            <div className="playground__wrapper--inner aug21--playground__wrapper--inner relative">
+          <div
+            className={`playground__wrapper--outer ${
+              isSmallScreen ? "" : "aug21--playground__wrapper--outer"
+            } absolute`}
+          >
+            <div
+              className={`playground__wrapper--inner ${
+                isSmallScreen ? "" : "aug21--playground__wrapper--inner"
+              } relative`}
+            >
               {aug21Collection.map((art, index) => {
                 return (
                   <div key={index} className="artwork__wrapper">
@@ -541,6 +481,7 @@ export const Project: React.FC = () => {
                       width={500}
                       height={500}
                       quality={100}
+                      className="artwork__image"
                     />
                     <span className="artwork__title">{art.subtitle}</span>
                   </div>
@@ -553,8 +494,16 @@ export const Project: React.FC = () => {
       <div className="carnival21 playground">
         <h3 className="subtitle">STACT Carnival 2021</h3>
         <div className="playground__container">
-          <div className="playground__wrapper--outer carnival21--playground__wrapper--outer absolute">
-            <div className="playground__wrapper--inner carnival21--playground__wrapper--inner relative">
+          <div
+            className={`playground__wrapper--outer ${
+              isSmallScreen ? "" : "carnival21--playground__wrapper--outer"
+            } absolute`}
+          >
+            <div
+              className={`playground__wrapper--inner ${
+                isSmallScreen ? "" : "carnival21--playground__wrapper--inner"
+              } relative`}
+            >
               {carnival21Collection.map((art, index) => {
                 return (
                   <div key={index} className="artwork__wrapper">
@@ -564,6 +513,7 @@ export const Project: React.FC = () => {
                       width={500}
                       height={500}
                       quality={100}
+                      className="artwork__image"
                     />
                     <span className="artwork__title">{art.subtitle}</span>
                   </div>
@@ -576,8 +526,16 @@ export const Project: React.FC = () => {
       <div className="jan22 playground">
         <h3 className="subtitle">Gathering Night Jan2022</h3>
         <div className="playground__container">
-          <div className="playground__wrapper--outer jan22--playground__wrapper--outer absolute">
-            <div className="playground__wrapper--inner jan22--playground__wrapper--inner relative">
+          <div
+            className={`playground__wrapper--outer ${
+              isSmallScreen ? "" : "jan22--playground__wrapper--outer"
+            } absolute`}
+          >
+            <div
+              className={`playground__wrapper--inner ${
+                isSmallScreen ? "" : "jan22--playground__wrapper--inner"
+              } relative`}
+            >
               {jan22Collection.map((art, index) => {
                 return (
                   <div key={index} className="jan22--artwork__wrapper">
@@ -587,6 +545,7 @@ export const Project: React.FC = () => {
                       width={500}
                       height={500}
                       quality={100}
+                      className="artwork__image"
                     />
                     <span className="artwork__title">{art.subtitle}</span>
                   </div>
@@ -599,8 +558,16 @@ export const Project: React.FC = () => {
       <div className="clw playground">
         <h3 className="subtitle">Cupid Last Wish</h3>
         <div className="playground__container">
-          <div className="playground__wrapper--outer clw--playground__wrapper--outer absolute">
-            <div className="playground__wrapper--inner clw--playground__wrapper--inner relative">
+          <div
+            className={`playground__wrapper--outer ${
+              isSmallScreen ? "" : "clw--playground__wrapper--outer"
+            } absolute`}
+          >
+            <div
+              className={`playground__wrapper--inner ${
+                isSmallScreen ? "" : "clw--playground__wrapper--inner"
+              } relative`}
+            >
               {clwCollection.map((art, index) => {
                 return (
                   <div key={index} className="clw--artwork__wrapper">
@@ -610,6 +577,7 @@ export const Project: React.FC = () => {
                       width={500}
                       height={500}
                       quality={100}
+                      className="artwork__image"
                     />
                     <span className="artwork__title">{art.subtitle}</span>
                   </div>
@@ -622,8 +590,16 @@ export const Project: React.FC = () => {
       <div className="rs22 playground">
         <h3 className="subtitle">Rendering Service 2022</h3>
         <div className="playground__container">
-          <div className="playground__wrapper--outer rs22--playground__wrapper--outer absolute">
-            <div className="playground__wrapper--inner rs22--playground__wrapper--inner relative">
+          <div
+            className={`playground__wrapper--outer ${
+              isSmallScreen ? "" : "rs22--playground__wrapper--outer"
+            } absolute`}
+          >
+            <div
+              className={`playground__wrapper--inner ${
+                isSmallScreen ? "" : "rs22--playground__wrapper--inner"
+              } relative`}
+            >
               {rs22Collection.map((art, index) => {
                 return (
                   <div key={index} className="artwork__wrapper">
@@ -633,6 +609,7 @@ export const Project: React.FC = () => {
                       width={500}
                       height={500}
                       quality={100}
+                      className="artwork__image"
                     />
                     <span className="artwork__title">{art.subtitle}</span>
                   </div>

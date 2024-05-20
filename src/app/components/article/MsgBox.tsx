@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useScrollToMiddle } from "./Slide";
+import { useScrollToMiddle } from "../helper/Helper";
 import "../styles/msgbox.css";
 
 interface MsgBoxProps {

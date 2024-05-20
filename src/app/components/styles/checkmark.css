@@ -21,10 +21,6 @@
 }
 
 .check-reveal--active .checkmark:after {
-  -webkit-animation: check 0.8s;
-  -moz-animation: check 0.8s;
-  -o-animation: check 0.8s;
-  animation: check 0.8s;
   -moz-transform: scaleX(-1) rotate(135deg);
   -ms-transform: scaleX(-1) rotate(135deg);
   -webkit-transform: scaleX(-1) rotate(135deg);
@@ -36,6 +32,15 @@
   content: "";
   display: block;
   position: absolute;
+}
+
+@media only screen and (min-width: 641px) {
+  .check-reveal--active .checkmark:after {
+    -webkit-animation: check 0.8s;
+    -moz-animation: check 0.8s;
+    -o-animation: check 0.8s;
+    animation: check 0.8s;
+  }
 }
 
 @media only screen and (min-width: 1281px) {
